@@ -33,7 +33,6 @@ public class FirstFragment extends Fragment {
             }
         });
 
-
         view.findViewById(R.id.button_about).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
