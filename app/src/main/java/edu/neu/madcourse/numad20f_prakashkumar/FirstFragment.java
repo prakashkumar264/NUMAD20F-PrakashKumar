@@ -4,8 +4,10 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.StringRes;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
@@ -32,6 +34,12 @@ public class FirstFragment extends Fragment {
         });
 
 
+        view.findViewById(R.id.button_about).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(), "Prakash Tarun Kumar\nkumar.prak@northeastern.edu", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
 

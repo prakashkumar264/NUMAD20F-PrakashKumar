@@ -10,4 +10,6 @@
 
     <string name="hello_first_fragment">Hello World!</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="Name">Prakash Tarun Kumar</string>
+    <string name="Email">kumar.prak@northeastern.edu</string>
 </resources>
