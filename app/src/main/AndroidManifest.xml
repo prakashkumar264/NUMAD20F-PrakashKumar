@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_pk_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity_button"></activity>
+        <activity android:name=".LinkCollector"></activity>
+        <activity android:name=".activity_button" />
 
         <meta-data
             android:name="com.google.android.wearable.standalone"
