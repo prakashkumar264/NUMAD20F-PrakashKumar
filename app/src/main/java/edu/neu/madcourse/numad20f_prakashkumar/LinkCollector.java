@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -19,29 +21,28 @@ public class LinkCollector extends AppCompatActivity {
     private RvAdapter rAdapter;
     private RecyclerView.LayoutManager rLayoutManger;
     private FloatingActionButton addButton;
-    public boolean isChecked;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_link_collector);
-
         addButton = findViewById(R.id.fab_linkadd);
-
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 addItem(0);
             }
         });
-
         createItemList();
         createRecyclerView();
-
     }
 
     public void addItem(int position) {
-        linkCards.add(position, new LinkCard( "Example item", "Example description"));
+        //linkCards.add(position, new LinkCard( "Example item", "Example description"));
+        EditText name = findViewById(R.id.input_name);
+        EditText url = findViewById(R.id.input_link);
+        
+        linkCards.add(new LinkCard(name.getText().toString(), url.getText().toString()));
         rAdapter.notifyDataSetChanged();
     }
 
