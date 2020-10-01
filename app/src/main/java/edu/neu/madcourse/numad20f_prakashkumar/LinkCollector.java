@@ -6,7 +6,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.webkit.URLUtil;
 import android.widget.EditText;
 
@@ -39,16 +41,25 @@ public class LinkCollector extends AppCompatActivity {
         EditText url = findViewById(R.id.input_link);
         String validName = name.getText().toString();
         String validURL = url.getText().toString();
-        if(URLUtil.isValidUrl(validURL)){
-            linkCards.add(new LinkCard(validName, validURL));
-            Snackbar.make(view, "Link Added SuccessFully", Snackbar.LENGTH_LONG)
+        if(TextUtils.isEmpty(validName)){
+            Snackbar.make(view, "Enter Proper Name", Snackbar.LENGTH_SHORT)
                     .setAction("Action", null).show();
-            name.getText().clear();
-            url.getText().clear();
-            rAdapter.notifyDataSetChanged();
         }else{
-            Snackbar.make(view, "Add Proper Link in http://yourwebsite.com Format", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show();
+            if(URLUtil.isValidUrl(validURL)){
+                linkCards.add(position, new LinkCard(validName, validURL));
+                Snackbar.make(view, "Link Added SuccessFully", Snackbar.LENGTH_SHORT)
+                        .setAction("Action", null).show();
+                name.getText().clear();
+                url.getText().clear();
+                name.clearFocus();
+                url.clearFocus();
+                InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+                inputMethodManager.hideSoftInputFromWindow(view.getApplicationWindowToken(),0);
+                rAdapter.notifyDataSetChanged();
+            }else{
+                Snackbar.make(view, "Add Proper Link in http://yourwebsite.com Format", Snackbar.LENGTH_SHORT)
+                        .setAction("Action", null).show();
+            }
         }
     }
 

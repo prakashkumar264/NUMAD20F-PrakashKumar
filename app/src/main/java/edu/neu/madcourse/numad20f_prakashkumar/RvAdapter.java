@@ -3,8 +3,6 @@ package edu.neu.madcourse.numad20f_prakashkumar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CheckBox;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -49,4 +47,6 @@ public class RvAdapter extends RecyclerView.Adapter<RvAdapter.RviewHolder> {
     public int getItemCount() {
         return linkCards.size();
     }
+
+
 }
