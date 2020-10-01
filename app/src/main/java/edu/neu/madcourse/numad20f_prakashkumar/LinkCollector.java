@@ -11,20 +11,17 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 
 public class LinkCollector extends AppCompatActivity {
+    private  FloatingActionButton fab_add_link;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_link_collector);
 
-        FloatingActionButton fab_add_link = findViewById(R.id.fab_addLink);
-        fab_add_link.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        fab_add_link = findViewById(R.id.fab_addLink);
 
 
-                //Snackbar.make(view, "URL Added Successfully", Snackbar.LENGTH_LONG).show();
-            }
-        });
+
+
     }
 }

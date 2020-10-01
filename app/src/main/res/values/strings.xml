@@ -40,4 +40,6 @@
     <string name="textView_LinkCollector_URL">URL</string>
     <string name="autofill_URLName">Enter Name</string>
     <string name="autofill_URLLink">Enter Link</string>
+    <string name="url_name">URL Name</string>
+    <string name="url_link">URL Link</string>
 </resources>
