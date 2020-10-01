@@ -1,62 +1,65 @@
 package edu.neu.madcourse.numad20f_prakashkumar;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.ItemTouchHelper;
+
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.View;
+import android.webkit.URLUtil;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 
 public class LinkCollector extends AppCompatActivity {
     private ArrayList<LinkCard> linkCards;
-    private RecyclerView recyclerView;
     private RvAdapter rAdapter;
-    private RecyclerView.LayoutManager rLayoutManger;
-    private FloatingActionButton addButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_link_collector);
-        addButton = findViewById(R.id.fab_linkadd);
+        FloatingActionButton addButton = findViewById(R.id.fab_linkadd);
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                addItem(0);
+                addItem(0, v);
             }
         });
         createItemList();
         createRecyclerView();
     }
 
-    public void addItem(int position) {
-        //linkCards.add(position, new LinkCard( "Example item", "Example description"));
+    public void addItem(int position, View view) {
         EditText name = findViewById(R.id.input_name);
         EditText url = findViewById(R.id.input_link);
-        
-        linkCards.add(new LinkCard(name.getText().toString(), url.getText().toString()));
-        rAdapter.notifyDataSetChanged();
+        String validName = name.getText().toString();
+        String validURL = url.getText().toString();
+        if(URLUtil.isValidUrl(validURL)){
+            linkCards.add(new LinkCard(validName, validURL));
+            Snackbar.make(view, "Link Added SuccessFully", Snackbar.LENGTH_LONG)
+                    .setAction("Action", null).show();
+            name.getText().clear();
+            url.getText().clear();
+            rAdapter.notifyDataSetChanged();
+        }else{
+            Snackbar.make(view, "Add Proper Link in http://yourwebsite.com Format", Snackbar.LENGTH_LONG)
+                    .setAction("Action", null).show();
+        }
     }
 
     public void createItemList() {
         linkCards = new ArrayList<>();
-        //linkCards.add(new LinkCard("Example item", "Example description"));
-        //linkCards.add(new LinkCard( "Example item", "Example description"));
-        //linkCards.add(new LinkCard("Example item", "Example description"));
     }
 
     public void createRecyclerView() {
-        recyclerView = findViewById(R.id.recyclerView);
+        RecyclerView recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
-        rLayoutManger = new LinearLayoutManager(this);
+        RecyclerView.LayoutManager rLayoutManger = new LinearLayoutManager(this);
         rAdapter = new RvAdapter(linkCards);
         recyclerView.setAdapter(rAdapter);
         recyclerView.setLayoutManager(rLayoutManger);

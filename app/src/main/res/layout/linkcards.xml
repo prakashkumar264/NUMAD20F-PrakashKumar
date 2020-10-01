@@ -18,8 +18,7 @@
         android:layout_marginTop="7dp"
         android:layout_marginStart="10dp"
         android:textColor="@android:color/black"
-        android:textSize="15sp"
-        android:textStyle="bold"
+        android:textSize="12sp"
         android:text="@string/url_name" />
 
     <TextView
@@ -29,6 +28,8 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="5dp"
         android:id="@+id/item_link"
+        android:textSize="18sp"
+        android:autoLink="web"
         android:text="@string/url_link" />
 
     </RelativeLayout>
