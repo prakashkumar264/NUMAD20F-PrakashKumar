@@ -10,6 +10,7 @@
     <string name="button_pressed">Press Buttons</string>
     <string name="button_linkcollector">Link Collector</string>
 
+
     <string name="hello_first_fragment">Hello World!</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="Name">Prakash Tarun Kumar</string>
@@ -34,4 +35,9 @@
     <string name="activity_buttons_pressed_D">Pressed: D</string>
     <string name="activity_buttons_pressed_E">Pressed: E</string>
     <string name="activity_buttons_pressed_F">Pressed: F</string>
+
+    <string name="textView_LinkCollector_Name">Name</string>
+    <string name="textView_LinkCollector_URL">URL</string>
+    <string name="autofill_URLName">Enter Name</string>
+    <string name="autofill_URLLink">Enter Link</string>
 </resources>
