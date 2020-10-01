@@ -15,7 +15,7 @@
             android:id="@+id/action_FirstFragment_to_activity_button"
             app:destination="@id/activity_button" />
         <action
-            android:id="@+id/action_FirstFragment_to_linkCollector"
+            android:id="@+id/firstFrag_to_linkCollector"
             app:destination="@id/linkCollector" />
     </fragment>
     <fragment
