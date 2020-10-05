@@ -40,6 +40,14 @@ public class FirstFragment extends Fragment {
             }
         });
 
+        view.findViewById(R.id.btn_location).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavHostFragment.findNavController(FirstFragment.this)
+                        .navigate(R.id.action_FirstFragment_to_location);
+            }
+        });
+
         view.findViewById(R.id.button_about).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

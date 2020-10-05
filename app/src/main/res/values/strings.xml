@@ -42,4 +42,9 @@
     <string name="autofill_URLLink">Enter Link</string>
     <string name="url_name">URL Name</string>
     <string name="url_link">URL Link</string>
+
+
+    <string name="button_location">Location</string>
+    <string name="txt_latitude">Latitude</string>
+    <string name="txt_longitude">Longitude</string>
 </resources>
