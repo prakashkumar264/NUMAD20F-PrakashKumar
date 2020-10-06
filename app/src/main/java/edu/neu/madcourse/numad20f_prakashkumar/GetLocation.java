@@ -50,8 +50,9 @@ public class GetLocation extends AppCompatActivity {
         if(requestCode == 100 && grantResults.length >0 && (grantResults[0] + grantResults[1] == PackageManager.PERMISSION_GRANTED)){
             getCurrentLocation();
         }else{
-            Toast.makeText(getApplicationContext(), "Permission Denied. Grant Permissions for Checking Location", Toast.LENGTH_SHORT).show();
-
+            Toast.makeText(getApplicationContext(), "Permission Denied. Grant Permissions for Checking Location", Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(GetLocation.this, MainActivity.class);
+            startActivity(intent);
         }
     }
 
