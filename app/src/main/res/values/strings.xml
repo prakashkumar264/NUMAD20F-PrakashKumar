@@ -47,4 +47,5 @@
     <string name="button_location">Location</string>
     <string name="txt_latitude">Latitude</string>
     <string name="txt_longitude">Longitude</string>
+    <string name="button_getLocation">Get Location</string>
 </resources>

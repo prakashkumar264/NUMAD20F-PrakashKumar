@@ -18,8 +18,8 @@
             android:id="@+id/firstFrag_to_linkCollector"
             app:destination="@id/linkCollector" />
         <action
-            android:id="@+id/action_FirstFragment_to_location"
-            app:destination="@id/location" />
+            android:id="@+id/action_FirstFragment_to_getLocation"
+            app:destination="@id/getLocation" />
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
@@ -42,8 +42,8 @@
         android:label="activity_link_collector"
         tools:layout="@layout/activity_link_collector" />
     <activity
-        android:id="@+id/location"
-        android:name="edu.neu.madcourse.numad20f_prakashkumar.Location"
-        android:label="activity_location"
-        tools:layout="@layout/activity_location" />
+        android:id="@+id/getLocation"
+        android:name="edu.neu.madcourse.numad20f_prakashkumar.GetLocation"
+        android:label="activity_get_location"
+        tools:layout="@layout/activity_get_location" />
 </navigation>
