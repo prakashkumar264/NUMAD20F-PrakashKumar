@@ -19,7 +19,7 @@
 
     <Button
         android:id="@+id/button_first"
-        android:layout_width="wrap_content"
+        android:layout_width="133dp"
         android:layout_height="wrap_content"
         android:text="@string/button_pressed"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -51,7 +51,7 @@
 
     <Button
         android:id="@+id/button_link_collector"
-        android:layout_width="wrap_content"
+        android:layout_width="136dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:layout_marginBottom="32dp"
@@ -70,7 +70,9 @@
         android:text="@string/button_location"
         app:layout_constraintBottom_toTopOf="@+id/button_link_collector"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_first" />
+        app:layout_constraintTop_toBottomOf="@+id/button_first"
+        app:layout_constraintVertical_bias="0.617" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
