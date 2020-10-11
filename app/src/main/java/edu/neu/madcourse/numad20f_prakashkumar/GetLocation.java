@@ -47,7 +47,19 @@ public class GetLocation extends AppCompatActivity {
 
         }
     }
-    
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(GetLocation.this);
+        if(ActivityCompat.checkSelfPermission(GetLocation.this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED
+                && ActivityCompat.checkSelfPermission(GetLocation.this, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED){
+            getCurrentLocation();
+        }else{
+            ActivityCompat.requestPermissions(GetLocation.this, new String[] {Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, 100);
+        }
+    }
+
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         if (requestCode == MY_PERMISSIONS_REQUEST_LOCATION) {
