@@ -3,6 +3,7 @@ package edu.neu.madcourse.numad20f_prakashkumar;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
@@ -27,6 +28,7 @@ import com.google.android.gms.tasks.Task;
 
 public class GetLocation extends AppCompatActivity {
 
+    private static final int MY_PERMISSIONS_REQUEST_LOCATION = 100;
     TextView txtlat, txtLong;
     FusedLocationProviderClient fusedLocationProviderClient;
 
@@ -45,27 +47,19 @@ public class GetLocation extends AppCompatActivity {
 
         }
     }
-
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(GetLocation.this);
-        if(ActivityCompat.checkSelfPermission(GetLocation.this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED
-                && ActivityCompat.checkSelfPermission(GetLocation.this, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED){
-            getCurrentLocation();
-        }else{
-            ActivityCompat.requestPermissions(GetLocation.this, new String[] {Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, 100);
-        }
-    }
-
+    
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        if(requestCode == 100 && grantResults.length >0 && (grantResults[0] + grantResults[1] == PackageManager.PERMISSION_GRANTED)){
-            getCurrentLocation();
-        }else{
-            Toast.makeText(getApplicationContext(), "Permission Denied. Grant Permissions for Checking Location", Toast.LENGTH_LONG).show();
-            Intent intent = new Intent(GetLocation.this, MainActivity.class);
-            startActivity(intent);
+        if (requestCode == MY_PERMISSIONS_REQUEST_LOCATION) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+                    getCurrentLocation();
+                }
+            } else {
+                Toast.makeText(getApplicationContext(), "Permission Denied. Grant Permissions for Checking Location", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(GetLocation.this, MainActivity.class);
+                startActivity(intent);
+            }
         }
     }
 
