@@ -50,4 +50,10 @@
     <string name="button_getLocation">Get Location</string>
 
     <string name="btn_webservice">Web Service</string>
+    <string name="placeholder_dic_name">Search Meaning</string>
+    <string name="btn_search_meaning">Get Meaning</string>
+    <string name="txtview_pronunciation">Pronunciation :</string>
+    <string name="txtview_Meaning">Meaning :</string>
+    <string name="txtview_Synonyms">Synonyms :</string>
+    <string name="txtview_Example">Example :</string>
 </resources>
