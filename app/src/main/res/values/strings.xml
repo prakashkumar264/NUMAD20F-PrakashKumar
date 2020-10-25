@@ -56,4 +56,5 @@
     <string name="txtview_Meaning">Meaning :</string>
     <string name="txtview_Synonyms">Synonyms :</string>
     <string name="txtview_Example">Example :</string>
+    <string name="txtview_word">Word</string>
 </resources>

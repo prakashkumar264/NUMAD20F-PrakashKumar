@@ -14,7 +14,9 @@
         android:roundIcon="@mipmap/ic_launcher_pk_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity_web_service"></activity>
+        <activity android:name=".activity_web_service"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            ></activity>
         <activity android:name=".GetLocation" />
 
         <meta-data

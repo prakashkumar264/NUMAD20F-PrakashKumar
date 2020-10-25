@@ -2,10 +2,13 @@ package edu.neu.madcourse.numad20f_prakashkumar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -15,6 +18,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.snackbar.Snackbar;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -29,7 +33,9 @@ public class activity_web_service extends AppCompatActivity {
     private TextView textView_meaning;
     private TextView textView_synonyms;
     private TextView textView_example;
+    private TextView textView_word;
     private RequestQueue mQueue;
+    private ImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +48,9 @@ public class activity_web_service extends AppCompatActivity {
         textView_synonyms = findViewById(R.id.txtview_synonyms_answer);
         textView_example = findViewById(R.id.txtview_example_answer);
         Button btn_search = findViewById(R.id.btn_get_meaning);
+        textView_word = findViewById(R.id.txtView_word_answer);
         mQueue = Volley.newRequestQueue(this);
+        imageView = findViewById(R.id.imgView);
 
         btn_search.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,10 +70,16 @@ public class activity_web_service extends AppCompatActivity {
                         try {
                             JSONArray jsonArray = response.toJSONArray(response.names());
                             assert jsonArray != null;
+                            textView_word.setText(editText_search.getText());
                             textView_pronunciation.setText(jsonArray.getString(1));
                             textView_meaning.setText(jsonArray.getString(2));
                             textView_synonyms.setText(jsonArray.getString(3));
                             textView_example.setText(jsonArray.getString(4));
+                            String url = jsonArray.getString(5);
+                            Picasso.get().load(url).into(imageView);
+                            editText_search.getText().clear();
+                            InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+                            inputMethodManager.hideSoftInputFromWindow(view.getApplicationWindowToken(),0);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -73,8 +87,11 @@ public class activity_web_service extends AppCompatActivity {
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Snackbar.make(view, "Word not found", Snackbar.LENGTH_SHORT)
+                InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+                inputMethodManager.hideSoftInputFromWindow(view.getApplicationWindowToken(),0);
+                Snackbar.make(view, editText_search.getText()+":  Word not found", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+                editText_search.getText().clear();
             }
         });
         mQueue.add(request);
