@@ -48,4 +48,6 @@
     <string name="txt_latitude">Latitude</string>
     <string name="txt_longitude">Longitude</string>
     <string name="button_getLocation">Get Location</string>
+
+    <string name="btn_webservice">Web Service</string>
 </resources>

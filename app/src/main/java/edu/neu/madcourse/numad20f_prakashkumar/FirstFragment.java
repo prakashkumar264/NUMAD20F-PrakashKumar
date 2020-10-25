@@ -48,6 +48,14 @@ public class FirstFragment extends Fragment {
             }
         });
 
+        view.findViewById(R.id.button_webservice).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavHostFragment.findNavController(FirstFragment.this)
+                        .navigate(R.id.action_FirstFragment_to_activity_web_service);
+            }
+        });
+
         view.findViewById(R.id.button_about).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,6 +63,7 @@ public class FirstFragment extends Fragment {
                 txt.setText("Prakash Tarun Kumar\nkumar.prak@northeastern.edu");
             }
         });
+
     }
 
 

@@ -20,6 +20,9 @@
         <action
             android:id="@+id/action_FirstFragment_to_getLocation"
             app:destination="@id/getLocation" />
+        <action
+            android:id="@+id/action_FirstFragment_to_activity_web_service"
+            app:destination="@id/activity_web_service" />
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
@@ -46,4 +49,9 @@
         android:name="edu.neu.madcourse.numad20f_prakashkumar.GetLocation"
         android:label="activity_get_location"
         tools:layout="@layout/activity_get_location" />
+    <activity
+        android:id="@+id/activity_web_service"
+        android:name="edu.neu.madcourse.numad20f_prakashkumar.activity_web_service"
+        android:label="activity_web_service"
+        tools:layout="@layout/activity_web_service" />
 </navigation>

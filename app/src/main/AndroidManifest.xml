@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_pk_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".GetLocation"></activity>
+        <activity android:name=".activity_web_service"></activity>
+        <activity android:name=".GetLocation" />
 
         <meta-data
             android:name="com.google.android.wearable.standalone"
@@ -21,7 +22,7 @@
 
         <activity
             android:name=".LinkCollector"
-            android:configChanges="keyboardHidden|orientation|screenSize"></activity>
+            android:configChanges="keyboardHidden|orientation|screenSize" />
         <activity android:name=".activity_button" />
         <activity
             android:name=".MainActivity"
