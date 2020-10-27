@@ -23,6 +23,9 @@
         <action
             android:id="@+id/action_FirstFragment_to_activity_web_service"
             app:destination="@id/activity_web_service" />
+        <action
+            android:id="@+id/action_FirstFragment_to_ws_img"
+            app:destination="@id/ws_img" />
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
@@ -54,4 +57,9 @@
         android:name="edu.neu.madcourse.numad20f_prakashkumar.activity_web_service"
         android:label="activity_web_service"
         tools:layout="@layout/activity_web_service" />
+    <activity
+        android:id="@+id/ws_img"
+        android:name="edu.neu.madcourse.numad20f_prakashkumar.ws_img"
+        android:label="activity_ws_img"
+        tools:layout="@layout/activity_ws_img" />
 </navigation>
